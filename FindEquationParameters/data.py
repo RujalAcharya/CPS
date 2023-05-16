@@ -39,10 +39,15 @@ regression_model = LinearRegression()
 regression_model.fit(x, y)
 y_predicted = regression_model.predict(x)
 rmse = mean_squared_error(y, y_predicted)
+print('For y = Voltage, x = Distance')
 print('Slope: ', regression_model.coef_)
 print('Intercept: ', regression_model.intercept_)
 print('Root Mean Square:', rmse)
 
+
+print('------for  y = Distance------')
+print(f'Slope: {1/regression_model.coef_}')
+print(f'Intercept: {regression_model.intercept_/regression_model.coef_}')
 if args.plot:
     plt.scatter(x, y, s =10)
     plt.xlabel('x(Distance)')
